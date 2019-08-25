@@ -1,2 +1,31 @@
-# sparkify-data-lake
-This project consists of an ETL pipeline which extracts data from S3, processes them using Spark, and loads back into S3 as a set of dimensional tables to be consumed by the sparkify analytics team in order to continue finding insights in what songs their users are listening to.
+# Sparkify Data Warehouse
+
+## Introduction
+Sparkify is a grower music streaming startup which aims to move their 
+data processes and analyses onto the cloud. Their data resides in S3, in 
+two directories consisting of a JSON logs from their app users 
+activities, as well as a JSON metadata with the songs in the app.
+
+Bellow are two examples of how the JSON files look like.
+
+### Songs
+
+Each song json file contains information about the song and artist such as the title, artist Id, location, name and duration of the song.
+
+```python
+{"num_songs": 1, "artist_id": "ARJIE2Y1187B994AB7", "artist_latitude": null, "artist_longitude": null, "artist_location": "", "artist_name": "Line Renaud", "song_id": "SOUPIRU12A6D4FA1E1", "title": "Der Kleine Dompfaff", "duration": 152.92036, "year": 0}
+```
+
+### Logs:
+Each line of this json brings information about the users (name, gender, location and account payment level), artists, song's title, page in the app and time.
+![log dat](/images/log-data.png)
+
+
+## ETL Pipeline
+
+As a data engineering case, this project has an ETL pipeline that 
+extracts their data from S3, processes them using Spark, and loads the 
+data back into S3 as a set of dimensional tables. This will allow their 
+analytics team to continue finding insights in what songs their users are 
+listening to.
+
