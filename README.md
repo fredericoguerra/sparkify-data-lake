@@ -29,3 +29,57 @@ data back into S3 as a set of dimensional tables. This will allow their
 analytics team to continue finding insights in what songs their users are 
 listening to.
 
+## Usage
+
+1. Into dl.cfg input your IAM user credentials for `AWS_ACCESS_KEY` and `AWS_SECRET_ACCESS_KEY`.
+2. Into dl.cfg set the bucket to store the final tables on AWS.
+4. Run
+> python3 etl.py
+
+## Schemas
+
+### **Fact Table**
+
+>- **songplays** - records in log data associated with song plays i.e. records with page NextSong
+>    - songplay_id
+>    - start_time
+>    - user_id
+>    - level
+>    - song_id
+>    - artist_id
+>    - session_id
+>    - location
+>    - user_agent
+
+### **Dimension Tables**
+
+>- **users** - users in the app
+>    - user_id
+>    - first_name
+>    - last_name
+>    - gender
+>    - level
+
+>- **songs** - songs in the music database
+>    - song_id
+>    - title
+>    - artist_id
+>    - year
+>    - duration
+
+>- **artists** - artists in the music database
+>    - artist_id
+>    - name
+>    - location
+>    - lattitude
+>    - longitude
+
+>- **time** - timestamps of records in songplays broken down into specific units
+>    - start_time
+>    - hour
+>    - day
+>    - week
+>    - month
+>    - year
+>    - weekday
+
