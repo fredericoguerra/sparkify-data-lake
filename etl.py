@@ -14,6 +14,7 @@ os.environ['AWS_ACCESS_KEY_ID']=config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
 
 
+
 def create_spark_session():
     spark = SparkSession \
         .builder \
@@ -24,7 +25,7 @@ def create_spark_session():
 
 def process_song_data(spark, input_data, output_data):
     # get filepath to song data file
-    song_data = input_data + "song-data/A/A/A/*"
+    song_data = input_data + "song-data/A/A/A/*.json"
     
     # read song data file
     df = spark.read.json(song_data)
@@ -78,7 +79,7 @@ def process_log_data(spark, input_data, output_data):
     time_table.write.mode('overwrite').partitionBy('year','month').parquet(output_data + 'time')
 
     # read in song data to use for songplays table
-    song_data = input_data + "song-data/A/A/A/*"
+    song_data = input_data + "song-data/A/A/A/*.json"
     song_df = spark.read.json(song_data)
 
     # extract columns from joined song and log datasets to create songplays table 
@@ -104,8 +105,8 @@ month('datetime').alias('month')
 
 def main():
     spark = create_spark_session()
-    input_data = "s3a://udacity-dend/"
-    output_data = "s3a://fguer-sparkify-v2/"
+    input_data = config['AWS']['INPUT_DATA']
+    output_data = config['AWS']['OUTPUT_DATA']
     
     process_song_data(spark, input_data, output_data)    
     process_log_data(spark, input_data, output_data)
