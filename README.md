@@ -32,13 +32,13 @@ listening to.
 ## Usage
 
 1. Run
-```python
+```
 python3 etl.py --key [YOUR_AWS_ACCESS_KEY_ID] --secret [AWS_SECRET_ACCESS_KEY] -from [INPUT_BUCKET] -to [OUTPUT_BUCKET]
 ```
 ## Schemas
 
 ### **Fact Table**
-
+```
 >- **songplays** - records in log data associated with song plays i.e. records with page NextSong
 >    - songplay_id
 >    - start_time
@@ -49,30 +49,33 @@ python3 etl.py --key [YOUR_AWS_ACCESS_KEY_ID] --secret [AWS_SECRET_ACCESS_KEY] -
 >    - session_id
 >    - location
 >    - user_agent
-
+```
 ### **Dimension Tables**
-
+```
 >- **users** - users in the app
 >    - user_id
 >    - first_name
 >    - last_name
 >    - gender
 >    - level
-
+```
+```
 >- **songs** - songs in the music database
 >    - song_id
 >    - title
 >    - artist_id
 >    - year
 >    - duration
-
+```
+```
 >- **artists** - artists in the music database
 >    - artist_id
 >    - name
 >    - location
 >    - lattitude
 >    - longitude
-
+```
+```
 >- **time** - timestamps of records in songplays broken down into specific units
 >    - start_time
 >    - hour
@@ -81,4 +84,4 @@ python3 etl.py --key [YOUR_AWS_ACCESS_KEY_ID] --secret [AWS_SECRET_ACCESS_KEY] -
 >    - month
 >    - year
 >    - weekday
-
+```
