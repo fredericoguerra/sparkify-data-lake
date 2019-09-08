@@ -33,7 +33,7 @@ listening to.
 
 1. Run
 ```python
-> python3 etl.py --key [YOUR_AWS_ACCESS_KEY_ID] --secret [AWS_SECRET_ACCESS_KEY] -from [INPUT_BUCKET] -to [OUTPUT_BUCKET]
+python3 etl.py --key [YOUR_AWS_ACCESS_KEY_ID] --secret [AWS_SECRET_ACCESS_KEY] -from [INPUT_BUCKET] -to [OUTPUT_BUCKET]
 ```
 ## Schemas
 
