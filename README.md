@@ -31,10 +31,8 @@ listening to.
 
 ## Usage
 
-1. Into dl.cfg input your IAM user credentials for `AWS_ACCESS_KEY` and `AWS_SECRET_ACCESS_KEY`.
-2. Into dl.cfg set the bucket to store the final tables on AWS.
-4. Run
-> python3 etl.py
+1. Run
+> python3 etl.py --key [YOUR_AWS_ACCESS_KEY_ID] --secret [AWS_SECRET_ACCESS_KEY] -from [INPUT_BUCKET] -to [OUTPUT_BUCKET]
 
 ## Schemas
 
